@@ -18,6 +18,9 @@ def guessing():
     try:
         guessed_text = entry.get()
         guess = int(guessed_text)
+        if guess < 1 or guess > 100:
+            label2.configure(text = "enter a number which lies between 1 and 100 :)")
+            return
     except ValueError:
         label2.configure(text = "enter a valid number between 1 and 100")
         return
@@ -31,4 +34,3 @@ def guessing():
 button = tkinter.Button(root, text ="Guess", command= guessing)
 button.pack()
 root.mainloop()
-
